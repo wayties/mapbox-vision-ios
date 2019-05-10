@@ -137,7 +137,7 @@ struct ModelPerformanceResolver {
         }
     }
     
-    private static let isTopDevice = UIDevice.current.isTopDevice
+    private static let isHighPerformanceIphone = UIDevice.current.isHighPerformanceIphone
     
     private static let segmentationHighEnd   = PerformanceEntry(off: 1, low: 2, high: 7)
     private static let detectionHighEnd      = PerformanceEntry(off: 3, low: 4, high: 12)
@@ -148,9 +148,9 @@ struct ModelPerformanceResolver {
     private static func performanceEntry(for model: ModelType) -> PerformanceEntry {
         switch model {
         case .segmentation:
-            return isTopDevice ? segmentationHighEnd : segmentationLowEnd
+            return isHighPerformanceIphone ? segmentationHighEnd : segmentationLowEnd
         case .detection:
-            return isTopDevice ? detectionHighEnd : detectionLowEnd
+            return isHighPerformanceIphone ? detectionHighEnd : detectionLowEnd
         }
     }
     
