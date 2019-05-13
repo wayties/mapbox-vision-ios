@@ -10,7 +10,7 @@ import Foundation
 import MapboxVisionNative
 import UIKit
 
-enum DeviceModel {
+private enum DeviceModel {
     enum Name {
         static let iPhone = "iPhone"
     }
