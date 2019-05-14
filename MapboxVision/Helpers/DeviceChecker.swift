@@ -25,7 +25,7 @@ extension UIDevice {
      // By default we consider next-gen iPhone as a uncapable to run models with high performance.
      // This is due to potential issues with temperature during operational mode.
      // We must do proper testing before upgrading `maxIphoneWithHighPerformance` version.
-    var isHighPerformanceIphone: Bool {
+    var isHighPerformance: Bool {
         let modelID = self.modelID
 
         guard
