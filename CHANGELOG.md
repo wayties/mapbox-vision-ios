@@ -2,6 +2,7 @@
 
 ## 0.5.0 - Unreleased
 - Add support for UK country 
+- Removed `MapboxNavigation` dependency
 
 ## 0.4.0
 - `VisionARManager` allows to change ARLane's length
