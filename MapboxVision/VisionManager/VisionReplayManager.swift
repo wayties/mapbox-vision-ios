@@ -12,8 +12,9 @@ import CoreMedia
 /**
     `VisionReplayManager` is a counterpart of `VisionManager` that uses recorded video and telemetry instead of realtime data.
     Use it in the same workflow as you use `VisionManager` after creating it with specific recorded session.
-*/
 
+    - Important: This class is intended for debugging purposes only.
+*/
 public final class VisionReplayManager: BaseVisionManager {
     
     /**
@@ -24,7 +25,7 @@ public final class VisionReplayManager: BaseVisionManager {
         
         - Parameter recordPath: Path to a folder with recorded session. You typically record such sessions using `startRecording` / `stopRecording` on `VisionManager`.
 
-        - Returns: Instance of `VisionRecordManager` configured to use data from specified session.
+        - Returns: Instance of `VisionReplayManager` configured to use data from specified session.
     */
     public static func create(recordPath: String) throws -> VisionReplayManager {
         return VisionReplayManager(dependencies: try ReplayDependencies.default(recordPath: recordPath))
@@ -38,10 +39,10 @@ public final class VisionReplayManager: BaseVisionManager {
     }
 
     /**
-     Start delivering events from `VisionManager`.
+     Start delivering events from `VisionReplayManager`.
      Calling `start` on already started or destroyed instance is considered a mistake.
 
-     - Parameter delegate: Delegate for `VisionRecordManager`. Delegate is held as a strong reference until `stop` is called.
+     - Parameter delegate: Delegate for `VisionReplayManager`. Delegate is held as a strong reference until `stop` is called.
      */
     public func start(delegate: VisionManagerDelegate? = nil) {
         switch state {
@@ -60,7 +61,7 @@ public final class VisionReplayManager: BaseVisionManager {
     }
 
     /**
-     Stop delivering events from `VisionManager`.
+     Stop delivering events from `VisionReplayManager`.
      Calling `stop` on a not started or destroyed instance is considered a mistake.
      */
     public func stop() {
@@ -76,7 +77,7 @@ public final class VisionReplayManager: BaseVisionManager {
     }
 
     /**
-     Cleanup the state and resources of `VisionManger`.
+     Cleanup the state and resources of `VisionReplayManager`.
      */
     public func destroy() {
         guard !state.isUninitialized else { return }
