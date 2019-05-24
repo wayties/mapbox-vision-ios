@@ -15,10 +15,6 @@ final class Platform: NSObject, PlatformInterface {
         self.dependencies = dependencies
     }
     
-    func getMotionReferenceFrame() -> CMAttitudeReferenceFrame {
-        return .xArbitraryZVertical
-    }
-    
     func makeVideoClip(_ startTime: Float, end endTime: Float) {
         dependencies.recordCoordinator?.makeClip(from: startTime, to: endTime)
     }
