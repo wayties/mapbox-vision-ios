@@ -16,14 +16,14 @@ public protocol VisionManagerProtocol: AnyObject {
 
      - Parameter screenCoordinate: Screen coordinate expressed in pixels
      */
-    func pixelToWorld(screenCoordinate: Point2D) -> WorldCoordinate
+    func pixelToWorld(screenCoordinate: Point2D) -> WorldCoordinate?
 
     /**
      Converts location of the point from a world coordinate to a screen coordinate.
 
      - Parameter worldCoordinate: Point in world coordinate
      */
-    func worldToPixel(worldCoordinate: WorldCoordinate) -> Point2D
+    func worldToPixel(worldCoordinate: WorldCoordinate) -> Point2D?
 
     /**
      Converts location of the point from a geo coordinate to a world coordinate.
